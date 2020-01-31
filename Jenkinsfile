@@ -9,11 +9,11 @@ node ('terraform') {
     }
 
     stage ('Publishing Junitresults') {
-        jUnit 'target/surefire-reports/*.xml'
+        junit 'target/surefire-reports/*.xml'
     }
 
     stage ('Archiving Artifacts') {
-        archiveArtifact 'target/*.jar'
+        archiveArtifacts 'target/*.jar'
     }
 
     stage ('Build Sucess') {
