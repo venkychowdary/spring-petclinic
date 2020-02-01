@@ -1,4 +1,4 @@
-node ('terraform') {
+node ('maven') {
 
     stage ('Git Repository') {
         git 'https://github.com/venkychowdary/spring-petclinic.git'
@@ -20,8 +20,9 @@ node ('terraform') {
         echo 'Venky One More Success in your project'
     }
 
-    stage ('Running jar file') {
-        sh 'java -jar target/*.jar'
+    stage ('Deploying app in Container') {
+        sh 'docker image build -t spc:1.0.0 .'
+        sh 'docker container run -p 8090:8080 spc:1.0.0'
     }
-
+    
 }
