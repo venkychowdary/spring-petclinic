@@ -1,4 +1,4 @@
-node ('maven') {
+node ('docker') {
 
     stage ('Git Repository') {
         git 'https://github.com/venkychowdary/spring-petclinic.git'
